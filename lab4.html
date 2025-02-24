@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <title>INST377 - Lab 4</title>
+        <h1 id="header">INST377 - Lab4</h1>
+        <link rel="stylesheet" href="lab4.css">
+    </head>
+
+    <body>
+        <div class='content-area'>
+			<div class='row'>
+				<div class='column'>
+					<!-- Alert Me -->
+					<div class = "box nameForm">
+						<form name = "nameForm" onsubmit="return(validateName())" >
+							<label>Name:</label>
+							<input type="text" placeholder=" " id="name" required> 
+							<input type="submit" value = "Alert Me!">
+						</form>
+
+						<script type="text/javascript">
+							function validateName() {
+								if(document.nameForm.name.value === "") {
+									alert("Enter a name!")
+									return false;
+								}
+								alert("Hi " + document.nameForm.name.value + "!" ) 
+								return true;
+							}
+						</script>
+					</div>
+				</div>
+
+				<div class='skinny-column'>
+
+					<!-- Change Color -->
+					<div class = "box colorButton">
+						<button onclick='changeColor()'>Change Color</button>
+						<script type="text/javascript">
+							function changeColor() {
+								if(document.body.style.backgroundColor == 'lightblue') {
+									document.body.style.backgroundColor = 'darkgreen'
+								} else {
+									document.body.style.backgroundColor  = 'lightblue'
+								}
+							}
+						</script>
+					</div>
+				</div>
+			<div class='row'>
+				<div class='column'>
+					<!-- Text Tester -->
+					<div class = "box textForm">
+						<form name = "textForm" onsubmit="return(validateText())" >
+							<label>Text Tester:</label>
+							<input type="text" placeholder=" " id="valText">
+							<input type="submit" value = "Validate Text">
+						</form>
+
+						<script type="text/javascript">
+							var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+							function validateText() {
+								if(document.textForm.valText.value === "") {
+									alert("Enter text!")
+								} 
+								if(validation.test(document.textForm.valText.value)){
+									alert("How about...nah")
+									return false;
+								}else {
+									return true;
+								}
+								}
+						</script>
+						
+					</div>
+				</div>
+				<div class='skinny-column'>
+
+					<!-- Add Text -->
+					<div class="box textButton">
+						<button id="addButton" onclick="addText()">Add Text</button>
+					  </div>
+					  <script type="text/javascript">
+						function addText() {
+							document.getElementById("header").textContent = "INST377 - Lab4 - Adding Text";
+						}
+					  </script>
+				</div>
+
+			</div>
+		</div>
+		</div>
+    </body>
+</html>
